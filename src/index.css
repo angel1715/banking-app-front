@@ -1,68 +1,874 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: box-sizing;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+body{
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    padding: 0;
+    box-sizing: box-sizing;
+}
+.navbar{
+  position: fixed;
+  z-index: 1;
+  background-color: rgb(10, 162, 38);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.send-money-message{
+  width:260px;
+  height: 80px;
+  position: fixed;
+  z-index: 2;
+  margin-top: 60px;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 2px solid rgb(53, 240, 1);
+
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.send-money-message-title{
+
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 1px;
+}
+
+.withdraw-money-message-title{
+
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 1px;
+}
+
+.send-money-message-check{
+ color: rgb(53, 240, 1);
+}
+
+.withdraw-money-message{
+  width:260px;
+  height: 80px;
+  position: fixed;
+  z-index: 2;
+  margin-top: 60px;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 2px solid rgb(53, 240, 1);
+
+}
+
+.navbar-brand{
+ 
+  margin-right: 78px;
+}
+
+.register-login-container{
+  margin: 12px 0px 12px auto;
+  margin-right: 50px;
+  padding: .1px;
+}
+
+.log-in, .register{
+  text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  display: inline;
+  margin: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  transition: opacity .4s;
+  font-size: 22px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.login-password-container{
+  position: relative;
+}
+
+.show-password-icon{
+  display: block;
+  position: absolute;
+  top: 47px;
+  margin-left: 92%;
+  cursor: pointer;
+ }
+
+.user-information{
+  width: 250px;
+  margin-left: 40px;
+  margin-top: 30px;
+  font-size: 18px;
+
+}
+
+.register:hover{
+  opacity: .9;
+}
+
+.log-in:hover{
+opacity: .9;
+}
+
+.nav-link:hover{
+   text-decoration: underline;
+}
+
+.card-link{
+  color: rgb(0, 0, 0);
+  border: none;
+  background-color: transparent;
+  margin-top: 200px;
+  display: block;
+  margin-top: 20px;
+  margin-left: 100px;
+  text-decoration: none;
+  font-size: 21px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.card-link:hover{
+ color: rgb(48, 48, 48);
+ 
+}
+
+
+.fa-credit-card{
+  font-size: 20px;
+  
+}
+
+.home-hero{
+  width: 100vw;
+  height: 680px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.707), rgba(0, 0, 0, 0.702)), url("./assets/bankingimg8.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: .1px;
+  object-fit: cover;
+}
+
+.hero-title{
+  margin-top: 270px;
+  font-size: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  color: rgb(15, 223, 53);
+
+}
+
+.hero-description{
+  font-size: 35px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  font-weight: 550;
+  color: rgb(17, 245, 89);
+
+}
+
+.home-section2{
+  width: 100vw;
+  height: 300px;
+  background-color: white;
+  
+}
+
+.register-container{
+  padding: .1px;
+  background-color: rgb(10, 162, 38);
+  width: 100%;
+  height: 100%;
+}
+
+.login-container{
+  padding: .1px;
+  background-color: rgb(10, 162, 38);
+  width: 100%;
+  height: 100%;
+}
+
+.register-form-container{
+  width: 70%;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  padding: 40px;
+}
+
+.login-form-container{
+  width: 40%;
+  min-width: 300px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  padding: 40px;
+  padding-bottom: 10px;
+}
+.login-form{
+  height: 350px;
+  
+}
+
+.form-label{
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.form-check-label{
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.register-form-title{
+  font-size: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
+}
+
+.login-form-title{
+  font-size: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
+  
+}
+
+.register-submit-btn{
+  width: 150px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  margin: 20px auto;
+  transition: opacity .3s;
+}
+
+.login-submit-btn{
+  width: 100%;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  margin: 20px auto;
+  transition: opacity .3s;
+  margin-top: 40px;
+}
+
+.login-submit-btn:hover{
+  opacity: .9;
+}
+
+.register-submit-btn:hover{
+  opacity: .9;
+}
+
+.dashboard-navbar{
+
+   position: fixed;
+  z-index: 1;
+  background-color: rgb(10, 162, 38);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.nav-item-dashboard{
+  margin-left: 12px;
+}
+
+.log-out-btn{
+  border: 2px solid white;
+   font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 15px;
+}
+
+.log-out-btn:hover{
+  border: 3px solid white;
+ 
+
+}
+.dashboar-container{
+  padding: .1px;
+  background-color: rgb(249, 249, 249);
+}
+.dashboard-content-container{
+  width: 100%;
+  
+}
+
+.balance-container{
+   width:65%;
+  min-width: 500px;
+   border-radius: 10px;
+   background: linear-gradient(rgba(255, 255, 255, 0.998), rgb(255, 255, 255));
+   border: 2px solid rgba(0, 0, 0, 0.48);
+  padding-bottom: 30px;
+  margin-top: 130px;
+  padding: .1px;
+  padding-bottom: 30px;
+}
+
+.dashboard-table-container{
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.movements-title{
+  margin-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
+}
+
+.account-number-container{
+  width: 200px;
+  float: right;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 2px solid black;
+  height: 70px;
+  font-size: 230px;
+}
+
+.account-number-title, .account-number{
+  
+   text-align: right;
+   margin-right: 20px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 17px;
+ 
+}
+.account-number-title{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+ 
+.account-number{
+  margin-top: -5px;
+}
+
+.balance-title{
+  
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 40px;
+  margin-bottom: -5px;
+}
+
+.balance-span{
+  display: block;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 550;
+  font-family: Arial, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 40px;
+}
+
+.transaction-btn-container{
+  margin-top: 80px;
+  text-align: center;
+ 
+}
+
+.send-money-btn, .deposit-money-btn, .withdraw-money-btn{
+
+ margin: 17px;
+ font-size: 19px;
+ transition: opacity .2s;
+ border-radius: 50px;
+ width: 130px;
+}
+
+.send-money-btn{
+    background-color: rgb(10, 162, 38);
+
+      font-family: Arial, Helvetica, sans-serif;
+      display: inline-block;
+      width: 100px;
+      
+}
+.send-money-btn:hover{
+  opacity: .9;
+}
+.deposit-money-btn{
+
+background-color: rgb(10, 162, 38);
+      font-family: Arial, Helvetica, sans-serif;
+}
+
+.deposit-money-btn:hover{
+  opacity: .9;
+}
+
+.withdraw-money-btn{
+background-color: rgb(10, 162, 38);
+      font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.withdraw-money-btn:hover{
+  opacity: .9;
+}
+
+.send-overlay, .width-overlay, .deposit-overlay{
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.66);
+  z-index: 2;
+  padding: 1px;
+  overflow: scroll;
+}
+
+.close-btn, .close-width-overlay-btn{
+  position: absolute;
+  top: 80px;
+  right: 75px;
+  font-size: 60px;
+  text-decoration: none;
+  color:rgb(230, 230, 230);
+  transition: color .2s;
+  background-color: transparent;
+  border: none;
+}
+
+.close-btn:hover{
+  color: rgb(255, 255, 255);
+}
+
+.close-width-overlay-btn:hover{
+    color: rgb(255, 255, 255);
+
+}
+
+.send-overlay-content-container, .withdraw-overlay-content-container{
+  width: 50%;
+  margin: 170px auto;
+  border-radius: 25px;
+  position: relative;
+  padding: .1px;
+  padding-bottom: 30px;
+}
+
+
+
+.send-overlay-title, .withdraw-overlay-title{
+  font-size: 35px;
+  margin-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(5, 150, 31);
+  
+}
+
+.send-money-form, .withdraw-money-form, .deposit-money-form{
+  margin-top: 40px;
+}
+
+
+
+.send-money-label, .deposit-cvv-label{
+  display: block;
+  margin-left: 30px;
+  
+}
+.expiration-cvv-container{
+  display: flex;
+}
+.deposit-expiration-label{
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.deposit-cvv-label{
+  display: inline-block;
+   
+}
+
+.send-money-input{
+  display: block;
+  width: 35%;
+  min-width: 145px;
+  padding: 5px;
+    margin-left: 30px;
+    border-radius: 5px;
+    border: 1px solid rgb(5, 150, 31);
+    margin-bottom: 15px;
+}
+
+.deposit-expiration-input{
+  width: 20%;
+  min-width: 100px;
+  padding: 5px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(5, 150, 31);
+}
+
+.deposit-expiration-input:focus{
+  border: 1px solid rgb(5, 150, 31);
+  outline: 1px solid rgb(5, 150, 31);
+
+}
+
+.deposit-cvv-input{
+    display: inline-block;
+  width: 20%;
+    min-width: 100px;
+  margin-left: 30px;
+  margin-bottom: 15px;
+  padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(5, 150, 31);
+}
+
+.deposit-cvv-input:focus{
+  border: 1px solid rgb(5, 150, 31);
+  outline: 1px solid rgb(5, 150, 31);
+
+}
+
+.send-money-amount-input{
+   display: inline-block;
+  width: 20%;
+    min-width: 100px;
+  margin-left: 30px;
+  margin-bottom: 15px;
+  padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(5, 150, 31);
+}
+
+.send-money-amount-input:focus{
+  border: 1px solid rgb(5, 150, 31);
+  outline: 1px solid rgb(5, 150, 31);
+}
+
+.send-money-input:focus{
+  border: 1px solid rgb(5, 150, 31);
+  outline: 1px solid rgb(5, 150, 31);
+}
+
+.bad-credentials{
+  color: rgb(255, 3, 3);
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: -20px;
+}
+
+.crete-account-message{
+  width: 270px;
+  height: 90px;
+  position: fixed;
+  margin-top: 135px;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 2px solid rgb(53, 240, 1);
+}
+
+.crete-account-message-title{
+  font-size: 18px;
+  
+}
+
+.find-user-btn, .send-form-btn{
+  width:150px;
+  margin-left: 30px;
+  font-size: 18px;
+}
+
+.send-money-confirm-btn{
+  margin-left: 30px;
+}
+
+.confirm-label{
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.send-form-btn{
+  display: block;
+}
+
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+.token-validation{
+  
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.spin{
+  width: 100px;
+  height: 100px;
+  border: 5px solid rgba(243, 243, 243, 0.556);
+  border-top: 5px solid rgba(0, 0, 0, 0.866);
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-55%, -55%);
+  animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+.card-information-container{
+  width: 100vw;
+  height: 680px;
+  padding: .1px;
+ }
+
+.card-info-container{
+  
+  width:55%;
+  min-width: 450px;
+  height: 350px;
+  margin-top: 130px;
+  border-radius: 10px;
+   background: linear-gradient(rgba(255, 255, 255, 0.998), rgb(255, 255, 255));
+   border: 2px solid rgba(0, 0, 0, 0.48);
+}
+
+.card-icon{
+ display: block; 
+ font-size: 25px; 
+}
+
+.card-info-title{
+  font-size: 25px;
+  margin-top: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-balance-container{
+  margin-top: 30px;
+  margin-left: -20px;
+ }
+
+.card-balance{
+  display: block;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 550;
+  font-family: Arial, Helvetica, Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 40px;
+
+}
+
+.card-balance-title{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 40px;
+  margin-bottom: -5px;
+ }
+
+.card-number-container{
+  width: 230px;
+  float: right;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 2px solid black;
+  font-size: 230px;
+}
+
+.card-number-title, .card-number{
+  
+  text-align: right;
+   margin-right: 20px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 17px;
+}
+
+.card-number-title{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.card-expiration{
+  float: right;
+  margin-right: 20px;
+  margin-bottom: -2px;
+}
+
+.card-expiration-title{
+ margin-left: 30px;
+ margin-top: -15px;
+  
+}
+.card-expiration-date{
+   float: right;
+   margin-top: -40px;
+  margin-right: 30px;
+}
+
+.cvv{
+  float: right;
+  margin-right: 30px;
+  margin-top: -35px;
+  cursor: pointer;
+}
+
+.cvv-title{
+  margin-left: 30px;
+ margin-top: -15px;
+}
+.card-expiration-date, .card-expiration-title, .cvv-title, .cvv{
+  font-size: 15px;
+}
+.card-number{
+    margin-top: -5px;
+
+}
+
+
+
+
+.password-confirmation-cotaier{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.551);
+
+}
+
+.password-confirmation{
+  width: 40%;
+  height: 210px;
+  min-width: 350px;
+  background-color: rgb(255, 255, 255);
+   position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-55%, -55%);
+  border-radius: 20px;
+ 
+}
+
+.password-confirmation-label{
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.password-confirmation-input{
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid rgb(5, 150, 31);
+  font-size: 20px;
+    
+}
+
+.password-confirmation-input:focus{
+  border: 1px solid rgb(5, 150, 31);
+  outline: 1px solid rgb(5, 150, 31);
+}
+
+.close-enter-password-btn{
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-size: 50px;
+  text-decoration: none;
+  color:rgb(155, 155, 155);
+  transition: color .2s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+}
+
+.close-enter-password-btn:hover{
+  color:rgb(233, 2, 2);
+}
+
+.password-confirmation-submit{
+  display: block;
+  margin: 20px auto;
+  font-size: 20px;
+  width: 160px;
+  background-color: rgb(15, 15, 15);
+}
+
+.password-confirmation-submit:hover{
+  background-color: rgb(36, 36, 36);
+
+}
+
+.footer-content-container{
+  padding: 30px;
+ 
+}
+
+.footer{
+  width: 100%;
+  background-color: rgb(42, 42, 42);
+}
+
+
+.send-us-a-message a{
+  text-decoration: none;
+  
+  
+}
+
+@media(max-width: 1000px){
+  .show-password-icon{
+    margin-left: 88%;
   }
-  a:hover {
-    color: #747bff;
+}
+
+
+@media(max-width: 900px){
+  .show-password-icon{
+    margin-left: 88%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media(max-width: 850px){
+  .show-password-icon{
+    margin-left: 85%;
   }
+}
+
+.services-container{
+  padding: .1px;
+}
+
+.services-content-container{
+  margin-top: 90px;
+}
+
+.about-container{
+  padding: .1px;
+}
+
+.about-content-container{
+  margin-top: 90px;
 }

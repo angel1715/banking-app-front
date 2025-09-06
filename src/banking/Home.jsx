@@ -4,7 +4,7 @@ import Footer from "./Footer";
 function Home(){
 
     return(
-        <>
+        <div className="hero-container">
        <Navigation />
 
        <div className="home-hero">
@@ -14,7 +14,7 @@ function Home(){
        </div>
 
         <Footer></Footer>
-        </>
+        </div>
     )
 }
 export default Home

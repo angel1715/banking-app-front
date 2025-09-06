@@ -23,14 +23,15 @@ function Login() {
    * Handles the user login by sending credentials to the backend.
    * If successful, saves the JWT in localStorage and navigates to the dashboard.
    * If credentials are invalid, shows an error message.
-   * 
+   *
    * @param {React.FormEvent} e - The form submit event
    */
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevents parameters from being shown in the URL
 
     try {
-      const baseUrl = "http://localhost:8080/banking/login";
+      const baseUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/login";
       const response = await axios.post(
         `${baseUrl}/${emailLogin}/${passwordLogin}`
       );

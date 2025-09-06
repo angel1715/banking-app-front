@@ -40,6 +40,7 @@ const AboutUs = () => {
             AG-Bank
           </a>
         </div>
+        
       </nav>
 
       <section id="about" className="py-5 bg-white about-content-container">

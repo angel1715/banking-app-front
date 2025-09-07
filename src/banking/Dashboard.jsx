@@ -43,7 +43,7 @@ function Dashboard() {
    */
   const getNewBalance = async () => {
     try {
-      const basesUrl = "http://localhost:8080/banking/findById";
+      const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findById";
 
       const requestResult = await axios.get(`${basesUrl}/${user.id}
     `);
@@ -87,7 +87,7 @@ function Dashboard() {
     try {
       e.preventDefault();
 
-      const basesUrl = "http://localhost:8080/banking/findByAccountNumber";
+      const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
 
       const requestResult = await axios.get(`${basesUrl}/${accountNumber}`);
 
@@ -180,7 +180,7 @@ function Dashboard() {
   const handleSendMoney = async (e) => {
     try {
       e.preventDefault();
-      const basesUrl = "http://localhost:8080/banking/sendMoney";
+      const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/sendMoney";
       setIsChecked(false);
       const amountWithoutSeparator = amount.replace(/,/g, "");
 
@@ -241,7 +241,7 @@ function Dashboard() {
    */
   const handleWithdrawMoney = async (e) => {
     e.preventDefault();
-    const basesUrl = "http://localhost:8080/banking/withdrawFunds";
+    const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/withdrawFunds";
     setIsChecked(false);
     const amountWithoutSeparator = amount.replace(/,/g, "");
 
@@ -325,7 +325,7 @@ function Dashboard() {
     e.preventDefault();
 
     const [month, year] = expirationD.split("/");
-    const basesUrl = "http://localhost:8080/banking/depositFunds";
+    const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/depositFunds";
     //this gets the card numbers without the dashes to it send to the DB
     const cardNumberWithoutDashes = cardNumber.replace(/-/g, "");
     const amountWithoutSeparator = amount.replace(/,/g, "");
@@ -378,7 +378,7 @@ function Dashboard() {
   
   //function to handle the user logout
   const handleLogout = async () => {
-    await axios.post("http://localhost:8080/banking/logout");
+    await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
     localStorage.removeItem(jwt);
     sessionStorage.clear();
     navigate("/login")

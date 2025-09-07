@@ -42,7 +42,7 @@ function CardInformation() {
    */
   const getNewBalance = async () => {
     try {
-      const baseUrl = "http://localhost:8080/banking/findByAccountNumber";
+      const baseUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
       const response = await axios.get(`${baseUrl}/${user.accountNumber}`);
       setNewCardBalance(response.data.cardBalance);
     } catch (error) {

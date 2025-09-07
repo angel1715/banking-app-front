@@ -6,7 +6,7 @@ import { NumericFormat } from "react-number-format";
 
 /**
  * CardInformation Component
- * Displays user's card details including card number, expiration date, 
+ * Displays user's card details including card number, expiration date,
  * CVV, and balance.
  * Allows toggling CVV visibility and navigating back to the dashboard.
  */
@@ -42,7 +42,8 @@ function CardInformation() {
    */
   const getNewBalance = async () => {
     try {
-      const baseUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
+      const baseUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
       const response = await axios.get(`${baseUrl}/${user.accountNumber}`);
       setNewCardBalance(response.data.cardBalance);
     } catch (error) {
@@ -52,6 +53,10 @@ function CardInformation() {
 
   // Load the new balance when component mounts or when user.accountNumber changes
   useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      navigate("/login", { replace: true });
+    }
     getNewBalance();
   }, [user.accountNumber]);
 
@@ -63,9 +68,7 @@ function CardInformation() {
 
     const isMasked = cvvRef.current.innerHTML === "cvv";
 
-    cvvRef.current.innerHTML = isMasked
-      ? user.cardVerificationValue
-      : "cvv";
+    cvvRef.current.innerHTML = isMasked ? user.cardVerificationValue : "cvv";
 
     cvvEyeIcon.current.classList.toggle("fa-eye");
     cvvEyeIcon.current.classList.toggle("fa-eye-slash");
@@ -74,7 +77,11 @@ function CardInformation() {
   return (
     <>
       <div className="card-information-container">
-        <div className="token-validation" style={{ display: "none" }} ref={loader}>
+        <div
+          className="token-validation"
+          style={{ display: "none" }}
+          ref={loader}
+        >
           <div className="spin"></div>
         </div>
 

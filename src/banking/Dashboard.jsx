@@ -381,7 +381,7 @@ function Dashboard() {
     await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
     localStorage.removeItem(jwt);
     sessionStorage.clear();
-    navigate("/login")
+    navigate("/login", { replace: true });
      window.history.pushState(null, "", window.location.href);
       window.onpopstate = () => {
         navigate("/login");

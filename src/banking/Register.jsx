@@ -58,8 +58,8 @@ function Register() {
     setIsSubmitting(true);
 
     try {
-      const baseUrl =
-        "https://bankingap.herokuapp.com/banking/saveNewUser";
+      const baseUrl = "https://bankingap.herokuapp.com/banking/saveNewUser";
+
       await axios.post(baseUrl, formData);
 
       if (accountCreatedMessageRef.current) {

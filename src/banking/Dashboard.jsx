@@ -43,7 +43,8 @@ function Dashboard() {
    */
   const getNewBalance = async () => {
     try {
-      const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findById";
+      const basesUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/findById";
 
       const requestResult = await axios.get(`${basesUrl}/${user.id}
     `);
@@ -87,7 +88,8 @@ function Dashboard() {
     try {
       e.preventDefault();
 
-      const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
+      const basesUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
 
       const requestResult = await axios.get(`${basesUrl}/${accountNumber}`);
 
@@ -180,7 +182,8 @@ function Dashboard() {
   const handleSendMoney = async (e) => {
     try {
       e.preventDefault();
-      const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/sendMoney";
+      const basesUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/sendMoney";
       setIsChecked(false);
       const amountWithoutSeparator = amount.replace(/,/g, "");
 
@@ -241,7 +244,8 @@ function Dashboard() {
    */
   const handleWithdrawMoney = async (e) => {
     e.preventDefault();
-    const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/withdrawFunds";
+    const basesUrl =
+      "https://bankingap-afdd1a65c364.herokuapp.com/banking/withdrawFunds";
     setIsChecked(false);
     const amountWithoutSeparator = amount.replace(/,/g, "");
 
@@ -325,7 +329,8 @@ function Dashboard() {
     e.preventDefault();
 
     const [month, year] = expirationD.split("/");
-    const basesUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/depositFunds";
+    const basesUrl =
+      "https://bankingap-afdd1a65c364.herokuapp.com/banking/depositFunds";
     //this gets the card numbers without the dashes to it send to the DB
     const cardNumberWithoutDashes = cardNumber.replace(/-/g, "");
     const amountWithoutSeparator = amount.replace(/,/g, "");
@@ -375,47 +380,42 @@ function Dashboard() {
       }
     }
   };
-  
+
   //function to handle the user logout
   const handleLogout = async () => {
-    await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
-    localStorage.removeItem(jwt);
-    sessionStorage.clear();
-    navigate("/login", { replace: true });
-     window.history.pushState(null, "", window.location.href);
+    try {
+      // Avisar al backend (opcional, si tienes un endpoint de logout)
+      await axios.post(
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/logout"
+      );
+
+      // Limpiar token correctamente
+      localStorage.removeItem("jwt");
+      sessionStorage.clear();
+
+      // Redirigir al login
+      navigate("/login", { replace: true });
+
+      // Evitar retroceso (refuerzo, aunque PrivateRoute ya debería manejar esto)
+      window.history.pushState(null, "", window.location.href);
       window.onpopstate = () => {
         navigate("/login");
       };
 
-    if (tokenValidationRef.current) {
-      tokenValidationRef.current.style.display = "block";
-
-      document.body.style.overflow = "hidden";
-    }
-    setTimeout(() => {
+      // Mostrar mensaje opcional
       if (tokenValidationRef.current) {
-        tokenValidationRef.current.style.display = "none";
-
-        document.body.style.overflow = "hidden";
-      }
-    }, 1000);
-  };
-
-  //shows a loader while validating the jwt
-  const displayTokenValidation = () => {
-    if (jwt) {
-      if (tokenValidationRef.current) {
-        tokenValidationRef.current.style.display =
-          tokenValidationRef.current.style.display === "none"
-            ? "block"
-            : "none";
+        tokenValidationRef.current.style.display = "block";
         document.body.style.overflow = "hidden";
       }
 
-      setTimeout(function () {
-        navigate("/cardInformation", { state: { user, jwt, passwordLogin } });
-        document.body.style.overflow = "scroll";
+      setTimeout(() => {
+        if (tokenValidationRef.current) {
+          tokenValidationRef.current.style.display = "none";
+          document.body.style.overflow = "auto"; // 🔹 restaurar scroll
+        }
       }, 1000);
+    } catch (error) {
+      console.error("Logout error:", error);
     }
   };
 
@@ -807,5 +807,3 @@ function Dashboard() {
   );
 }
 export default Dashboard;
-
-

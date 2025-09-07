@@ -30,7 +30,7 @@ function Login() {
     e.preventDefault(); // Prevents parameters from being shown in the URL
 
     try {
-      const baseUrl = "http://localhost:8080/banking/login";
+      const baseUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/login";
       const response = await axios.post(
         `${baseUrl}/${emailLogin}/${passwordLogin}`
       );

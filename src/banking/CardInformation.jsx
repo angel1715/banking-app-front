@@ -52,13 +52,13 @@ function CardInformation() {
   };
 
   // Load the new balance when component mounts or when user.accountNumber changes
+ 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (!token) {
-      navigate("/login", { replace: true });
-    }
-    getNewBalance();
-  }, [user.accountNumber]);
+  const token = localStorage.getItem("jwt");
+  if (!token) {
+    navigate("/login", { replace: true });
+  }
+}, [navigate]);
 
   /**
    * Toggles the CVV display between masked and visible.

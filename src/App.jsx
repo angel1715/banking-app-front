@@ -6,6 +6,7 @@ import Dashboard from "./banking/Dashboard";
 import CardInformation from "./banking/CardInformation";
 import AboutUs from "./banking/About";
 import Services from "./banking/Services";
+import PrivateRoute from "./banking/PrivateRoute";
 function App() {
   return (
     <BrowserRouter>
@@ -13,10 +14,18 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/dashboard" element={<Dashboard/>}/>
-        <Route exact path="/CardInformation" element={<CardInformation />}/>
-        <Route exact path="/about" element={<AboutUs />}/>
-        <Route exact path="/services" element={<Services />}/>
+        <Route
+          exact
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route exact path="/CardInformation" element={<CardInformation />} />
+        <Route exact path="/about" element={<AboutUs />} />
+        <Route exact path="/services" element={<Services />} />
       </Routes>
     </BrowserRouter>
   );

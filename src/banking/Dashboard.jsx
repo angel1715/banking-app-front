@@ -68,19 +68,6 @@ function Dashboard() {
     window.location.reload();
 
     getNewBalance();
-
-    if (tokenValidationRef.current) {
-      tokenValidationRef.current.style.display = "block";
-
-      document.body.style.overflow = "hidden";
-    }
-    setTimeout(() => {
-      if (tokenValidationRef.current) {
-        tokenValidationRef.current.style.display = "none";
-
-        document.body.style.overflow = "scroll";
-      }
-    }, 2000);
   }, []);
 
   /**

@@ -33,13 +33,13 @@ function CardInformation() {
       "https://bankingap-afdd1a65c364.herokuapp.com/banking/logout"
     );
 
-    window.location.href = "/dashboard";
     localStorage.removeItem(jwt);
     sessionStorage.clear();
     window.history.pushState(null, "", window.location.href);
     window.onpopstate = () => {
       navigate("/login");
     };
+    window.history.back();
     //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
   };
 

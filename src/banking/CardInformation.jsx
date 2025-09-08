@@ -23,16 +23,20 @@ function CardInformation() {
   /**
    * Toggles the loader and navigates to the dashboard after 1 second.
    */
-  const displayLoader = () => {
+  const displayLoader = async () => {
     if (!loader.current) return;
     
     loader.current.style.display =
       loader.current.style.display === "none" ? "block" : "none";
 
-    document.body.style.overflow = "hidden";
-    localStorage.removeItem(jwt);
-    sessionStorage.clear();
-    window.history.pushState(null, "", window.location.href="/login");
+    await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
+        localStorage.removeItem(jwt);
+        sessionStorage.clear();
+        navigate("/login", { replace: true });
+         window.history.pushState(null, "", window.location.href);
+          window.onpopstate = () => {
+            navigate("/login");
+          };
 
     setTimeout(() => {
       //navigate("/dashboard", { state: { user, jwt, passwordLogin } });

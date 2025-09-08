@@ -41,7 +41,7 @@ function CardInformation() {
     );
     window.history.pushState(null, "", window.location.href);
     window.onpopstate = () => {
-      navigate("/login", { state: { user, jwt, passwordLogin } });
+      navigate("/login");
     };
     //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
   };

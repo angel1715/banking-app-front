@@ -39,7 +39,7 @@ function CardInformation() {
           };
 
     setTimeout(() => {
-      //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
+      window.location.reload();
       href="/dashboard"
       document.body.style.overflow = "scroll";
     }, 1000);

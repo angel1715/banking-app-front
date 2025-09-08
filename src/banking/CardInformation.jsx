@@ -6,7 +6,7 @@ import { NumericFormat } from "react-number-format";
 
 /**
  * CardInformation Component
- * Displays user's card details including card number, expiration date,
+ * Displays user's card details including card number, expiration date, 
  * CVV, and balance.
  * Allows toggling CVV visibility and navigating back to the dashboard.
  */
@@ -25,20 +25,20 @@ function CardInformation() {
    */
   const displayLoader = async () => {
     if (!loader.current) return;
-
+    
     loader.current.style.display =
       loader.current.style.display === "none" ? "block" : "none";
 
-    await axios.post(
-      "https://bankingap-afdd1a65c364.herokuapp.com/banking/logout"
-    );
+       await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
     localStorage.removeItem(jwt);
     sessionStorage.clear();
-    navigate("/dashboard", { replace: true });
-    window.history.pushState(null, "", window.location.href);
-    window.onpopstate = () => {
-      navigate("/dashboard");
-    };
+    navigate("/login", { state: { user, jwt, passwordLogin } },{ replace: true });
+     window.history.pushState(null, "", window.location.href);
+      window.onpopstate = () => {
+        navigate("/dashboard", { state: { user, jwt, passwordLogin } });
+      };
+      //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
+    
   };
 
   /**
@@ -46,8 +46,7 @@ function CardInformation() {
    */
   const getNewBalance = async () => {
     try {
-      const baseUrl =
-        "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
+      const baseUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/findByAccountNumber";
       const response = await axios.get(`${baseUrl}/${user.accountNumber}`);
       setNewCardBalance(response.data.cardBalance);
     } catch (error) {
@@ -68,7 +67,9 @@ function CardInformation() {
 
     const isMasked = cvvRef.current.innerHTML === "cvv";
 
-    cvvRef.current.innerHTML = isMasked ? user.cardVerificationValue : "cvv";
+    cvvRef.current.innerHTML = isMasked
+      ? user.cardVerificationValue
+      : "cvv";
 
     cvvEyeIcon.current.classList.toggle("fa-eye");
     cvvEyeIcon.current.classList.toggle("fa-eye-slash");
@@ -77,11 +78,7 @@ function CardInformation() {
   return (
     <>
       <div className="card-information-container">
-        <div
-          className="token-validation"
-          style={{ display: "none" }}
-          ref={loader}
-        >
+        <div className="token-validation" style={{ display: "none" }} ref={loader}>
           <div className="spin"></div>
         </div>
 

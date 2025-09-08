@@ -34,10 +34,10 @@ function CardInformation() {
     );
     localStorage.removeItem(jwt);
     sessionStorage.clear();
-    navigate("/login", { replace: true });
+    navigate("/dashboard", { replace: true });
     window.history.pushState(null, "", window.location.href);
     window.onpopstate = () => {
-      navigate("/login");
+      navigate("/dashboard");
     };
   };
 

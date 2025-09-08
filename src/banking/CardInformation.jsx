@@ -36,9 +36,7 @@ function CardInformation() {
     localStorage.removeItem(jwt);
     sessionStorage.clear();
     window.history.pushState(null, "", window.location.href);
-    window.onpopstate = () => {
-      navigate("/login");
-    };
+
     window.history.back();
     //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
   };

@@ -24,7 +24,6 @@ function CardInformation() {
    * Toggles the loader and navigates to the dashboard after 1 second.
    */
   const displayLoader = async () => {
-    window.location.reload();
     if (!loader.current) return;
 
     loader.current.style.display =

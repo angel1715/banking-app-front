@@ -65,7 +65,7 @@ function Dashboard() {
    */
   useEffect(() => {
     getNewBalance();
-        const token = localStorage.getItem("jwt");
+        
 
     if (tokenValidationRef.current) {
       tokenValidationRef.current.style.display = "block";

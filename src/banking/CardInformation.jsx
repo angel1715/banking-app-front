@@ -25,7 +25,8 @@ function CardInformation() {
    */
   const displayLoader = () => {
     if (!loader.current) return;
-
+    localStorage.removeItem(jwt);
+    sessionStorage.clear();
     loader.current.style.display =
       loader.current.style.display === "none" ? "block" : "none";
 
@@ -52,7 +53,6 @@ function CardInformation() {
 
   // Load the new balance when component mounts or when user.accountNumber changes
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
     getNewBalance();
   }, [user.accountNumber]);
 

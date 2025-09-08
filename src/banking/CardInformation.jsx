@@ -32,6 +32,8 @@ function CardInformation() {
     document.body.style.overflow = "hidden";
     localStorage.removeItem(jwt);
     sessionStorage.clear();
+    window.history.pushState(null, "", window.location.href="/login");
+
     setTimeout(() => {
       //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
       href="/dashboard"

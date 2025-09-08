@@ -30,7 +30,8 @@ function CardInformation() {
       loader.current.style.display === "none" ? "block" : "none";
 
     document.body.style.overflow = "hidden";
-
+    localStorage.removeItem(jwt);
+    sessionStorage.clear();
     setTimeout(() => {
       //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
       href="/dashboard"

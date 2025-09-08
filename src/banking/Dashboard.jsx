@@ -65,9 +65,12 @@ function Dashboard() {
    * - Show temporary token validation overlay
    */
   useEffect(() => {
-    window.location.reload();
+    
 
     getNewBalance();
+
+    
+    
   }, []);
 
   /**

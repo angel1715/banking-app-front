@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { href, useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { NumericFormat } from "react-number-format";
 
@@ -25,15 +25,15 @@ function CardInformation() {
    */
   const displayLoader = () => {
     if (!loader.current) return;
-    localStorage.removeItem(jwt);
-    sessionStorage.clear();
+    
     loader.current.style.display =
       loader.current.style.display === "none" ? "block" : "none";
 
     document.body.style.overflow = "hidden";
 
     setTimeout(() => {
-      navigate("/dashboard", { state: { user, jwt, passwordLogin } });
+      //navigate("/dashboard", { state: { user, jwt, passwordLogin } });
+      href="/dashboard"
       document.body.style.overflow = "scroll";
     }, 1000);
   };

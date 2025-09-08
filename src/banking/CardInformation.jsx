@@ -32,13 +32,14 @@ function CardInformation() {
     await axios.post(
       "https://bankingap-afdd1a65c364.herokuapp.com/banking/logout"
     );
-    localStorage.removeItem(jwt);
-    sessionStorage.clear();
+
     navigate(
       "/dashboard",
       { state: { user, jwt, passwordLogin } },
       { replace: true }
     );
+    localStorage.removeItem(jwt);
+    sessionStorage.clear();
     window.history.pushState(null, "", window.location.href);
     window.onpopstate = () => {
       navigate("/login");

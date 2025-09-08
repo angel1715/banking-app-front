@@ -32,7 +32,7 @@ function CardInformation() {
        await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
     localStorage.removeItem(jwt);
     sessionStorage.clear();
-    navigate("/login", { state: { user, jwt, passwordLogin } },{ replace: true });
+    navigate("/dashboard", { state: { user, jwt, passwordLogin } },{ replace: true });
      window.history.pushState(null, "", window.location.href);
       window.onpopstate = () => {
         navigate("/dashboard", { state: { user, jwt, passwordLogin } });

@@ -20,30 +20,7 @@ function CardInformation() {
 
   const navigate = useNavigate();
 
-  /**
-   * Toggles the loader and navigates to the dashboard after 1 second.
-   */
-  /*
-  const displayLoader = async () => {
-    if (!loader.current) return;
-
-    loader.current.style.display =
-      loader.current.style.display === "none" ? "block" : "none";
-
-    await axios.post(
-      "https://bankingap-afdd1a65c364.herokuapp.com/banking/logout"
-    );
-
-    navigate("/dashboard", { state: { user, jwt, passwordLogin } });
-
-    localStorage.removeItem(jwt);
-    sessionStorage.clear();
-  };
-  */
-
-  /**
-   * Fetches the latest card balance from the backend.
-   */
+ 
   const getNewBalance = async () => {
     try {
       const baseUrl =

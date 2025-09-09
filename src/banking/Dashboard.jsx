@@ -65,12 +65,7 @@ function Dashboard() {
    * - Show temporary token validation overlay
    */
   useEffect(() => {
-    
-
     getNewBalance();
-
-    
-    
   }, []);
 
   /**
@@ -416,7 +411,7 @@ function Dashboard() {
         document.body.style.overflow = "scroll";
       }, 1000);
       window.onpopstate = () => {
-        navigate("/login", { state: { user, jwt, passwordLogin } });
+        navigate("/dashboard", { state: { user, jwt, passwordLogin } });
       };
     }
   };

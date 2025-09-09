@@ -23,15 +23,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route
-          exact
-          path="/CardInformation"
-          element={
-            <PrivateRoute>
-              <CardInformation />
-            </PrivateRoute>
-          }
-        />
+        <Route exact path="/CardInformation" element={<CardInformation />} />
         <Route exact path="/about" element={<AboutUs />} />
         <Route exact path="/services" element={<Services />} />
       </Routes>

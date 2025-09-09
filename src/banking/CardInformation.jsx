@@ -23,6 +23,7 @@ function CardInformation() {
   /**
    * Toggles the loader and navigates to the dashboard after 1 second.
    */
+  /*
   const displayLoader = async () => {
     if (!loader.current) return;
 
@@ -38,6 +39,7 @@ function CardInformation() {
     localStorage.removeItem(jwt);
     sessionStorage.clear();
   };
+  */
 
   /**
    * Fetches the latest card balance from the backend.
@@ -88,12 +90,7 @@ function CardInformation() {
             <a className="navbar-brand fs-1 text-light" href="#">
               AG-Bank
             </a>
-            <button
-              className="log-out-btn btn btn-lg text-light"
-              onClick={displayLoader}
-            >
-              Dashboard
-            </button>
+            
           </div>
         </nav>
 

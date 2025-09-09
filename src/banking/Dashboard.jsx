@@ -410,9 +410,7 @@ function Dashboard() {
         navigate("/cardInformation", { state: { user, jwt, passwordLogin } });
         document.body.style.overflow = "scroll";
       }, 1000);
-      window.onpopstate = () => {
-        navigate("/dashboard", { state: { user, jwt, passwordLogin } });
-      };
+      
     }
   };
 

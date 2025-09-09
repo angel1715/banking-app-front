@@ -14,15 +14,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
-        <Route
-          exact
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
+        <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/CardInformation" element={<CardInformation />} />
         <Route exact path="/about" element={<AboutUs />} />
         <Route exact path="/services" element={<Services />} />

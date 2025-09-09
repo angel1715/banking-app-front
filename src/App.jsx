@@ -6,7 +6,6 @@ import Dashboard from "./banking/Dashboard";
 import CardInformation from "./banking/CardInformation";
 import AboutUs from "./banking/About";
 import Services from "./banking/Services";
-import PrivateRoute from "./banking/PrivateRoute";
 function App() {
   return (
     <BrowserRouter>

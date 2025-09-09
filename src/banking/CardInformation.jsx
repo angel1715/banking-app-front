@@ -90,7 +90,6 @@ function CardInformation() {
             <a className="navbar-brand fs-1 text-light" href="#">
               AG-Bank
             </a>
-            
           </div>
         </nav>
 

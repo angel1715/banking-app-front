@@ -49,18 +49,8 @@ function Navigation() {
             </ul>
 
             <div className="register-login-container">
-              <Link
-                className="log-in text-dark btn btn-lg bg-light"
-                to="/login"
-              >
-                Log in
-              </Link>
-              <Link
-                className="register text-dark btn btn-lg bg-light"
-                to="/register"
-              >
-                Register
-              </Link>
+              
+              
             </div>
           </div>
         </div>

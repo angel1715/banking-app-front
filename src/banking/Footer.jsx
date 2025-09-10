@@ -1,36 +1,40 @@
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-container">
 
+        {/* Logo + description */}
+        <div className="footer-section">
+          <h2 className="footer-logo">AG-Bank</h2>
+          <p className="footer-text">
+            Your trusted online bank. Secure, fast and reliable banking services at your fingertips.
+          </p>
+        </div>
 
-function Footer(){
-    return(
-      <footer className="footer">
-       
-       <div className="footer-content-container row">
+        {/* Quick Links */}
+        <div className="footer-section">
+          <h3 className="footer-title">Quick Links</h3>
+          <ul className="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/services">Services</a></li>
+            
+          </ul>
+        </div>
 
-         
+        {/* Contact */}
+        <div className="footer-section">
+          <h3 className="footer-title">Contact</h3>
+          <p>Email: angelgarci310@gmail.com</p>
+          <p>Phone: +1 829 747 0508</p>
+        </div>
 
-                 <div className="footer-email-container mt-4 col-12 col-lg-3 col-md-4">
-                <i className="fa-solid fa-envelope text-light message-icon"></i>
-                <small className="text-light"> angelgarci310@gmail.com</small>
-                </div>
+      </div>
 
-                <div className="footer-phone-container mt-4 col-12 col-lg-3 col-md-4">
-                <i className="fa-solid fa-phone text-light fs-5"></i>
-                <small className="text-light"> 829-747-0508</small>
-                </div>
-
-                 <div className="footer-web-container mt-4 col-12 col-lg-3 col-md-4">
-                <i className="fa-solid fa-globe text-light fs-5"></i>
-                <small className="text-light"> www.agtech.com</small>
-                </div>
-
-                <div className="footer-copyright-container mt-4 col-12 col-lg-3">
-                <i class="fa-regular fa-copyright text-light fs-5"></i>
-                
-                <small className="text-light"> All rights reserved AG Tech Inc</small>
-                </div>
-       </div>
-         
-      </footer>
-    );
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} MyBank. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 }
-export default Footer
+
+export default Footer;

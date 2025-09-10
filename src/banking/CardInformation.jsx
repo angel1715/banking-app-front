@@ -70,7 +70,7 @@ function CardInformation() {
             </a>
             <button
               className="log-out-btn btn btn-lg text-light"
-              onClick={()=>{window.location.history.back()}}
+              onClick={()=>{window.history.back()}}
             >
               Dashboard
             </button>

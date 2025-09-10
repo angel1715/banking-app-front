@@ -19,18 +19,22 @@ function Login() {
   const [badCredentials, setBadCredentials] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  // State to manage submission button status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   /**
    * Handles the user login by sending credentials to the backend.
    * If successful, saves the JWT in localStorage and navigates to the dashboard.
    * If credentials are invalid, shows an error message.
-   * 
+   *
    * @param {React.FormEvent} e - The form submit event
    */
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevents parameters from being shown in the URL
-
+    setIsSubmitting(true);
     try {
-      const baseUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/login";
+      const baseUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/login";
       const response = await axios.post(
         `${baseUrl}/${emailLogin}/${passwordLogin}`
       );
@@ -51,6 +55,8 @@ function Login() {
       } else {
         setBadCredentials("An error occurred. Please try again later.");
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -151,8 +157,10 @@ function Login() {
           <button
             type="submit"
             className="btn bg-dark text-light btn-lg login-submit-btn"
+            disabled={isSubmitting}
+            style={{ cursor: isSubmitting ? "not-allowed" : "pointer" }}
           >
-            Submit
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>

@@ -1,15 +1,9 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { href, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import { NumericFormat } from "react-number-format";
 
-/**
- * CardInformation Component
- * Displays user's card details including card number, expiration date,
- * CVV, and balance.
- * Allows toggling CVV visibility and navigating back to the dashboard.
- */
 function CardInformation() {
   const location = useLocation();
   const { user, jwt, passwordLogin } = location.state || {};
@@ -18,10 +12,6 @@ function CardInformation() {
   const cvvEyeIcon = useRef(null);
   const loader = useRef(null);
 
-
-  /**
-   * Fetches the latest card balance from the backend.
-   */
   const getNewBalance = async () => {
     try {
       const baseUrl =
@@ -33,19 +23,14 @@ function CardInformation() {
     }
   };
 
-  // Load the new balance when component mounts or when user.accountNumber changes
   useEffect(() => {
     getNewBalance();
   }, [user.accountNumber]);
 
-  /**
-   * Toggles the CVV display between masked and visible.
-   */
   const showCvv = () => {
     if (!cvvRef.current || !cvvEyeIcon.current) return;
 
     const isMasked = cvvRef.current.innerHTML === "cvv";
-
     cvvRef.current.innerHTML = isMasked ? user.cardVerificationValue : "cvv";
 
     cvvEyeIcon.current.classList.toggle("fa-eye");
@@ -55,66 +40,81 @@ function CardInformation() {
   return (
     <>
       <div className="card-information-container">
-        <div
-          className="token-validation"
-          style={{ display: "none" }}
-          ref={loader}
-        >
+        {/* Loader */}
+        <div className="token-validation d-none" ref={loader}>
           <div className="spin"></div>
         </div>
 
-        <nav className="navbar card-information-navbar">
-          <div className="container-fluid">
-            <a className="navbar-brand fs-1 text-light" href="#">
-              AG-Bank
-            </a>
+        {/* Navbar */}
+        <nav className="navbar card-information-navbar px-3">
+          <div className="container-fluid d-flex justify-content-between align-items-center">
+            <a className="navbar-brand fs-3 fw-bold text-light">AG-Bank</a>
             <button
-              className="log-out-btn btn btn-lg text-light"
-              onClick={()=>{window.history.back()}}
+              className="btn btn-outline-light btn-sm"
+              onClick={() => {
+                window.history.back();
+              }}
             >
-              Dashboard
+              Back to Dashboard
             </button>
           </div>
         </nav>
 
-        <div className="card-info-container container">
-          <h2 className="text-center card-info-title">Card details</h2>
-          <i className="fa-solid fa-credit-card card-icon text-center"></i>
+        {/* Card info */}
+        <div className="container my-4">
+          <h2 className="text-center mb-4 card-info-title">Card Details</h2>
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-8 col-lg-6">
+              <div className="card shadow-lg rounded-4 p-4">
+                <div className="text-center mb-3">
+                  <i className="fa-solid fa-credit-card fa-2x card-icon"></i>
+                </div>
 
-          <div className="card-number-container mt-5">
-            <p className="card-number-title">Card number</p>
-            <p className="card-number">{user.cardNumber}</p>
-            <hr />
+                {/* Card number */}
+                <div className="mb-3">
+                  <p className="fw-semibold mb-1">Card Number</p>
+                  <p className="text-muted fs-5">{user.cardNumber}</p>
+                </div>
 
-            <div>
-              <p className="card-expiration-title">Exp</p>
-              <p className="card-expiration-date">
-                {user.expirationMonth}/{user.expirationYear}
-              </p>
+                {/* Expiration + CVV in flexbox */}
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <p className="fw-semibold mb-1">Exp</p>
+                    <p className="text-muted">
+                      {user.expirationMonth}/{user.expirationYear}
+                    </p>
+                  </div>
+
+                  <div className="text-end">
+                    <p className="fw-semibold mb-1">CVV</p>
+                    <p className="text-muted" ref={cvvRef}>
+                      cvv
+                    </p>
+                    <button
+                      className="btn btn-sm btn-outline-secondary"
+                      onClick={showCvv}
+                    >
+                      <i className="fa-solid fa-eye-slash" ref={cvvEyeIcon}></i>
+                    </button>
+                  </div>
+                </div>
+
+                <hr />
+
+                {/* Balance */}
+                <div className="text-center mt-3">
+                  <h4 className="fw-bold">
+                    <NumericFormat
+                      value={newCardBalance}
+                      displayType={"text"}
+                      thousandSeparator=","
+                      prefix="$"
+                    />
+                  </h4>
+                  <p className="text-muted">Available Balance</p>
+                </div>
+              </div>
             </div>
-
-            <hr />
-            <div>
-              <p className="cvv-title" ref={cvvRef}>
-                cvv
-              </p>
-              <p className="cvv" onClick={showCvv}>
-                <i className="fa-solid fa-eye-slash" ref={cvvEyeIcon}></i>
-              </p>
-            </div>
-          </div>
-
-          <div className="card-balance-container mt-5">
-            <span className="card-balance">
-              US{" "}
-              <NumericFormat
-                value={newCardBalance}
-                displayType={"text"}
-                thousandSeparator=","
-                prefix="$"
-              />
-            </span>
-            <p className="card-balance-title">Available balance</p>
           </div>
         </div>
       </div>

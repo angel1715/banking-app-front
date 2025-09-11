@@ -43,7 +43,7 @@
 /* Mensajes de éxito */
 .send-money-message,
 .withdraw-money-message {
-  width:260px;
+ width:260px;
   height: 80px;
   position: fixed;
   z-index: 2;

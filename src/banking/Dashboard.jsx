@@ -1,7 +1,7 @@
 
 
 
-////////////////////////////////////////////////////////////////////
+
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { NumericFormat } from "react-number-format";
@@ -708,7 +708,7 @@ function Dashboard() {
 
       {/* ================= DASHBOARD CONTENT ================= */}
       <div className="container py-4">
-        <div className="row g-4 align-items-center">
+        <div className="row g-4 align-items-center dashboard-container">
           <div className="col-12 col-md-6">
             <div className="p-3 border rounded bg-light h-100">
               <p className="fw-bold">Account number</p>

@@ -409,7 +409,7 @@ function Dashboard() {
 
   // --- Render ---
   return (
-    <div className="dashboard-container">
+    <div>
       {/* Loader JWT */}
       <div
         className="token-validation"

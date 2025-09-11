@@ -361,29 +361,24 @@ function Dashboard() {
 
   //function to handle the user logout
   const handleLogout = async () => {
-    await axios.post(
-      "https://bankingap-afdd1a65c364.herokuapp.com/banking/logout"
-    );
-    localStorage.removeItem(jwt);
+     try {
+    await axios.post("https://bankingap-afdd1a65c364.herokuapp.com/banking/logout");
+
+    // limpiar tokens
+    localStorage.removeItem("jwt");
     sessionStorage.clear();
+
+    // redirigir sin dejar historial
     navigate("/login", { replace: true });
+
+    // bloquear back
     window.history.pushState(null, "", window.location.href);
     window.onpopstate = () => {
-      navigate("/login");
+      window.history.go(1);
     };
-
-    if (tokenValidationRef.current) {
-      tokenValidationRef.current.style.display = "block";
-
-      document.body.style.overflow = "hidden";
-    }
-    setTimeout(() => {
-      if (tokenValidationRef.current) {
-        tokenValidationRef.current.style.display = "none";
-
-        document.body.style.overflow = "hidden";
-      }
-    }, 1000);
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+  }
   };
 
   //shows a loader while validating the jwt

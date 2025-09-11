@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { NumericFormat } from "react-number-format";
 import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import "./Dashboard.css"
 
 function Dashboard() {
   const location = useLocation();

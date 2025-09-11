@@ -1,0 +1,88 @@
+/* Fondo oscuro para overlays */
+.send-overlay,
+.width-overlay,
+.deposit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Contenido centrado */
+.send-overlay .container,
+.width-overlay .container,
+.deposit-overlay .container {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Botón de cierre */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Mensajes de éxito */
+.send-money-message,
+.withdraw-money-message {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  background: #e8fbe8;
+  border: 1px solid #4caf50;
+  color: #2e7d32;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1100;
+}
+
+/* Loader */
+.token-validation {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 1200;
+}
+
+.spin {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

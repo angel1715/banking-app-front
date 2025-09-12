@@ -40,6 +40,10 @@
   z-index: 1100;
 }
 
+.close-btn:hover{
+  color: rgb(229, 1, 1);
+}
+
 /* mobile version */
 @media (max-width: 580px) {
   .close-btn {

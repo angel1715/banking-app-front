@@ -27,7 +27,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Botón de cierre */
+/* Close overlay button */
 .close-btn {
   position: absolute;
   top: 15px;
@@ -35,9 +35,16 @@
   background: transparent;
   border: none;
   font-size: 2rem;
-  color: #fff;
+  color: #fff; /* Blanco por defecto */
   cursor: pointer;
   z-index: 1100;
+}
+
+/* mobile version */
+@media (max-width: 768px) {
+  .close-btn {
+    color: #000; /* Negro en pantallas pequeñas */
+  }
 }
 
 /* Mensajes de éxito */
@@ -84,13 +91,3 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media(max-width: 800px){
-  .close-btn {
-  
-
-  color: #000000;
- 
-}
-
-
-}

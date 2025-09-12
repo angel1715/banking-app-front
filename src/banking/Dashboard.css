@@ -41,7 +41,7 @@
 }
 
 /* mobile version */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .close-btn {
     color: #000; /* Negro en pantallas pequeñas */
   }

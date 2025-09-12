@@ -56,12 +56,7 @@ function Dashboard() {
     getNewBalance();
   }, []);
 
-  // === Tus funciones originales (findUserByAccountNumber, handleSendMoney, handleWithdrawMoney, handleDepositMoney, handleLogout, etc.)
-  // No las modifiqué, solo asegúrate de dejarlas igual que antes.
-
-  /**
-   * Find user by account number (used when sending money)
-   */
+ 
   const findUserByAccountNumber = async (e) => {
     try {
       e.preventDefault();
@@ -83,12 +78,7 @@ function Dashboard() {
     }
   };
 
-  /**
-   * Checkbox state handler for confirming transactions
-   */
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
+ 
 
   // Functions to open overlays
   const displaySendOverlay = () => {
@@ -112,33 +102,7 @@ function Dashboard() {
     }
   };
 
-  // Functions to close overlays
-  const closeSendOverlay = () => {
-    if (sendOverlayRef.current) {
-      window.location.reload();
-      sendOverlayRef.current.style.display = "none";
-      document.body.style.overflow = "scroll";
-    }
-    window.location.reload();
-  };
-
-  const closeDepositOverlay = () => {
-    window.location.reload();
-    if (depositOverlayRef.current) {
-      depositOverlayRef.current.style.display = "none";
-      document.body.style.overflow = "scroll";
-    }
-    window.location.reload();
-  };
-
-  const closeWithdrawOverlay = () => {
-    window.location.reload();
-    if (withdrawdOverlayRef.current) {
-      withdrawdOverlayRef.current.style.display = "none";
-      document.body.style.overflow = "scroll";
-    }
-    window.location.reload();
-  };
+ 
 
   /**
    * Delete a transaction from history
@@ -353,7 +317,7 @@ function Dashboard() {
         if (error.response.data.message === "Invalid card information") {
           alert("Invalid card information");
         }
-        
+
         if (error.response.data.message === "Insufficient card balance") {
           alert("Insufficient card balance");
         }

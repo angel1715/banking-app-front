@@ -1,4 +1,4 @@
-/* Fondo oscuro para overlays */
+/* Dark background for the overlays*/
 .send-overlay,
 .width-overlay,
 .deposit-overlay {
@@ -16,7 +16,7 @@
   padding: 1rem;
 }
 
-/* Contenido centrado */
+/* Centered content */
 .send-overlay .container,
 .width-overlay .container,
 .deposit-overlay .container {
@@ -35,7 +35,7 @@
   background: transparent;
   border: none;
   font-size: 2rem;
-  color: #fff; /* Blanco por defecto */
+  color: #fff; 
   cursor: pointer;
   z-index: 1100;
 }
@@ -51,7 +51,7 @@
   }
 }
 
-/* Mensajes de éxito */
+/* Success message */
 .send-money-message,
 .withdraw-money-message {
  width:260px;

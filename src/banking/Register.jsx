@@ -75,12 +75,10 @@ function Register() {
         navigate("/login");
       }, 3000);
     } catch (error) {
-      if (error.response) {
-
-        if (error.response.data.message === "Email is already in use") {
-          alert("Email is already in use");
-        }
-       
+      if (error.response?.status === 400) {
+        alert("Email is already in use");
+      } else {
+        alert("An unexpected error occurred. Please try again.");
       }
     } finally {
       setIsSubmitting(false);

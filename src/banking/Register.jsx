@@ -58,14 +58,14 @@ function Register() {
     setIsSubmitting(true);
 
     try {
-      const baseUrl = "https://bankingap-afdd1a65c364.herokuapp.com/banking/saveNewUser";
+      const baseUrl =
+        "https://bankingap-afdd1a65c364.herokuapp.com/banking/saveNewUser";
 
       await axios.post(baseUrl, formData, {
-  headers: {
-    "Content-Type": "application/json"
-  }
-});
-      
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (accountCreatedMessageRef.current) {
         accountCreatedMessageRef.current.style.display = "block";
@@ -76,16 +76,15 @@ function Register() {
       }, 3000);
     } catch (error) {
       if (error.response) {
-        if(error.response.data.message === "Email is already in use"){
+        if (error.response.data.message === "Email is already in use") {
           alert("Email is already in use");
+        } else if (
+          error.response.data.message === "Phone number is already in use"
+        ) {
+          alert("Phone number is already in use");
+        } else {
+          alert("An unexpected error occurred. Please try again.");
         }
-        else if(error.response.data.message === "Phone number is already in use"){
-
-        alert("Phone number is already in use");
-        }
-        
-      } else {
-        alert("An unexpected error occurred. Please try again.");
       }
     } finally {
       setIsSubmitting(false);

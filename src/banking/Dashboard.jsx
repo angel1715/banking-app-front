@@ -349,9 +349,11 @@ function Dashboard() {
       }
     } catch (error) {
       if (error.response) {
+
         if (error.response.data.message === "Invalid card information") {
           alert("Invalid card information");
         }
+        
         if (error.response.data.message === "Insufficient card balance") {
           alert("Insufficient card balance");
         }

@@ -75,9 +75,13 @@ function Register() {
         navigate("/login");
       }, 3000);
     } catch (error) {
-      if (error.response?.status === 400) {
+      if (error.response.data.message === "Email is already in use") {
         alert("Email is already in use");
-      } else {
+      }
+      if(error.response.data.message === "Phone number is already in use"){
+        alert("Phone number is already in use");
+      }
+      else {
         alert("An unexpected error occurred. Please try again.");
       }
     } finally {

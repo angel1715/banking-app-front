@@ -1,12 +1,46 @@
-# React + Vite
+# 💳 AG-Bank - Online Banking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AG-Bank is a fullstack banking application developed with **Java (Spring Boot)** in the backend and **React** in the frontend.  
+It allows users to perform financial transactions securely: **deposit, send, and withdraw money**, with authentication and session protection.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technologies used
 
-## Expanding the ESLint configuration
+### Backend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Java 17
+- Spring Boot
+- Spring Data JPA (Hibernate)
+- Spring Security (JWT Authentication)
+- PostgreSQL
+- Maven
+
+### Frontend
+
+- React 18
+- Axios
+- React Router DOM
+- Bootstrap 5
+- React Number Format
+
+### Infraestructura
+
+- Deploy Backend: **Heroku**
+- Deploy Frontend: **Vercel**
+
+---
+
+## ✨ Main features
+
+✅ JWT authentication and secure logout
+✅ Available operations:
+
+- **Deposit funds** using a card
+- **Withdraw funds** from the account
+- **Send money** to another account
+  ✅ Security validations (insufficient balance, invalid card, etc.)
+  ✅ Transaction history stored locally  
+  ✅ Responsive interface (adapted to desktop and mobile)
+
+---
